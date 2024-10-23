@@ -8,3 +8,12 @@ Perform Login To GitHub
     Input Text    ${LOGIN_FIELD}    ${username}
     Input Text    ${PASSWORD_FIELD}    ${password}
     Click Button  ${SUBMIT_BUTTON}
+
+*** Keywords ***
+Run Login Test
+    [Arguments]    ${username}    ${password}
+    Go To GitHub Home Page
+    Click Sign In
+    Perform Login To GitHub    ${username}    ${password}
+    [Teardown]    Close Browser
+

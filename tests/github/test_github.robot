@@ -1,4 +1,5 @@
 *** Settings ***
+Resource    ../../variables/global_variables.robot
 Resource    ../../pages/GitHubPage.robot
 Resource    ../../resources/keywords.robot
 Library     SeleniumLibrary
