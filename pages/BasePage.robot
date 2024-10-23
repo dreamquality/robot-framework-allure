@@ -5,12 +5,13 @@ Library    SeleniumLibrary
 ${BROWSER_RUNNING}    False
 
 *** Keywords ***
-Open Browser With Options
+Open Or Switch Browser
     [Arguments]    ${url}
-    Open Browser    ${url}    chrome    options=add_chrome_options
-
-Add Chrome Options
-    [Return]    --headless
+    Run Keyword If    ${BROWSER_RUNNING} == ${False}
+    ...    Open Browser    ${url}    chrome
+    ...    Set Global Variable    ${BROWSER_RUNNING}    True
+    ...    ELSE
+    Go To    ${url}
 
 Wait For Element And Click
     [Arguments]    ${locator}
