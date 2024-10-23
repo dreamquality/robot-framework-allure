@@ -42,33 +42,12 @@ jobs:
         if: always()
         run: allure generate reports -o reports/allure-report --clean
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
           path: reports/allure-report/
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Copy Allure History
-        if: always()
-        run: |
-          mkdir -p reports/allure-report/history
-          cp -r gh-pages/history/* reports/allure-report/history || true
-
-      - name: Deploy Allure Report with History
-        if: always()
-        uses: simple-elf/allure-report-action@master
-        with:
-          allure_results: reports/allure-report/
-          allure_history: gh-pages/history
-          keep_reports: 20
 
       - name: Deploy to GitHub Pages
         if: always()
@@ -76,5 +55,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: gh-pages
-
+          publish_dir: reports/allure-report
