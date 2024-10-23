@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Robot Framework Tests
-        run: pabot --processes 4 --outputdir reports tests/
+        run: pabot --processes 4 --outputdir reports --listener allure_robotframework tests/
         continue-on-error: true
 
       - name: Generate Allure Report

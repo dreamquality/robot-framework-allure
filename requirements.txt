@@ -2,5 +2,4 @@ robotframework
 robotframework-seleniumlibrary
 robotframework-pabot
 robotframework-jsonlibrary
-robotframework-allure
 allure-pytest
