@@ -6,6 +6,7 @@ Library     SeleniumLibrary
 Library     Collections
 
 *** Variables ***
+${LOGIN_DATA}    Load JSON From File    ../../variables/login_data.json
 ${SIGN_IN_PAGE_URL}    https://github.com/login
 ${EXPECTED_TITLE}      The world’s leading software development platform · GitHub
 
