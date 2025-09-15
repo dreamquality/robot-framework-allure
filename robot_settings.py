@@ -10,6 +10,7 @@ def run_tests(dry_run=False):
     dry_run_flag = '--dryrun' if dry_run else ''
     command = f'pabot {dry_run_flag} --processes 4 --outputdir reports --listener allure_robotframework --loglevel DEBUG tests/'
     print(f"Running command: {command}")
+    print(f"Allure results will be generated in output/allure directory")
     os.system(command)
 
 if __name__ == "__main__":

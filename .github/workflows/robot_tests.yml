@@ -40,7 +40,15 @@ jobs:
 
       - name: Generate Allure Report
         if: always()
-        run: allure generate reports -o reports/allure-report --clean
+        run: |
+          if [ -d "output/allure" ] && [ "$(ls -A output/allure/*.json 2>/dev/null)" ]; then
+            echo "Found Allure results in output/allure directory"
+            allure generate output/allure -o reports/allure-report --clean
+          else
+            echo "No Allure results found in output/allure directory"
+            mkdir -p reports/allure-report
+            echo "<html><body><h1>No test results found</h1><p>Allure results were not generated properly.</p></body></html>" > reports/allure-report/index.html
+          fi
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
