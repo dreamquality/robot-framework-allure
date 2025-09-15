@@ -7,10 +7,14 @@ logs/
 output.xml
 report.html
 log.html
+output/
 
 # Allure reports
 reports/
 !reports/allure-report/
+
+# Pabot files
+.pabotsuitenames
 
 # Node modules (if any)
 node_modules/

@@ -47,10 +47,26 @@ pip install -r requirements.txt
 
 ### 2. Running Tests
 
-To run tests with Robot Framework and Pabot (for parallel execution), use:
+**Quick syntax validation (recommended first step):**
+```bash
+python robot_settings.py --dryrun
+```
 
+**Run full tests with browser automation:**
 ```bash
 python robot_settings.py
+```
+
+**Alternative commands:**
+```bash
+# Direct robot command
+robot --outputdir reports tests/
+
+# With Pabot for parallel execution
+pabot --processes 4 --outputdir reports tests/
+
+# Syntax check only
+robot --dryrun tests/
 ```
 
 This will execute the tests in the `tests/` directory and save the results in the `reports/` directory.
@@ -79,6 +95,10 @@ The project is set up to run tests automatically via GitHub Actions, with result
 
 ## Notes
 
-- Ensure that the browser drivers (e.g., ChromeDriver, GeckoDriver) are installed and available in your system's PATH.
-- Update the credentials and variables in the `variables/global_variables.robot` and `variables/login_data.json` files as needed.
-- Adjust the browser settings and other configurations in `variables/config.robot`.
+- **FIXED**: All syntax errors that prevented the TAF from running have been resolved
+- Tests now support both headless (CI) and GUI (development) browser modes
+- Use `--dryrun` flag for quick syntax validation without browser automation
+- Ensure that the browser drivers (e.g., ChromeDriver, GeckoDriver) are installed and available in your system's PATH
+- Update the credentials and variables in the `variables/global_variables.robot` and `variables/login_data.json` files as needed
+- Adjust the browser settings and other configurations in `variables/config.robot`
+- See `RUNNING_TESTS.md` for detailed configuration options
