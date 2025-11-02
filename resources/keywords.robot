@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    JSONLibrary
 Resource   locators.robot
+Resource   ../pages/GitHubPage.robot
 
 *** Keywords ***
 Perform Login To GitHub
@@ -9,7 +11,6 @@ Perform Login To GitHub
     Input Text    ${PASSWORD_FIELD}    ${password}
     Click Button  ${SUBMIT_BUTTON}
 
-*** Keywords ***
 Run Login Test
     [Arguments]    ${username}    ${password}
     Go To GitHub Home Page
