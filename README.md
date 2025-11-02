@@ -93,6 +93,17 @@ This command will start a local server and automatically open the report in your
 
 The project is set up to run tests automatically via GitHub Actions, with results being uploaded as an artifact and a Slack notification sent (if configured).
 
+## Writing Tests
+
+For a comprehensive guide on how to write tests for this project, see [WRITING_TESTS.md](WRITING_TESTS.md).
+
+The guide covers:
+- Project architecture and Page Object Model
+- Step-by-step test creation
+- Best practices and common patterns
+- Troubleshooting tips
+- Quick reference for common keywords
+
 ## Notes
 
 - **FIXED**: All syntax errors that prevented the TAF from running have been resolved
@@ -102,3 +113,4 @@ The project is set up to run tests automatically via GitHub Actions, with result
 - Update the credentials and variables in the `variables/global_variables.robot` and `variables/login_data.json` files as needed
 - Adjust the browser settings and other configurations in `variables/config.robot`
 - See `RUNNING_TESTS.md` for detailed configuration options
+- See `WRITING_TESTS.md` for a comprehensive guide on writing tests
